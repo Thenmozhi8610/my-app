@@ -1,0 +1,45 @@
+<header class="overflow-hidden bg-white w-full h-[100vh]">
+    <div class="flex h-screen items-center justify-center">
+        <div class="bg-blue-50 rounded-3xl sm:p-10 flex flex-col items-center sm:gap-5">
+            <div class="p-5">
+                <img src="/favicon.ico" alt="">
+            </div>
+            <form #login="ngForm" class="flex flex-col gap-3 sm:w-100 w-70 p-5" (ngSubmit)="onsubmit(login)">
+                <div class="flex flex-col gap-1">
+                    <label class="text-sm sm:text-md">Organization Code</label>
+                    <input type="text" required name="orgcode" minlength="3" maxlength="255" [(ngModel)]="orgcode"
+                        #orgfield="ngModel" placeholder="Eg., BSIT"
+                        class="shadow p-2 rounded-xl bg-white placeholder:opacity-35">
+                    <div *ngIf="(login.submitted||orgfield.touched)&&orgfield.invalid" class="error">
+                        <small *ngIf="orgfield.errors?.['required']" class="text-red-500">username is required</small><br>
+                        <small *ngIf="orgfield.errors?.['minlength']" class="text-red-500">username must be at least 3 characters</small>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="text-sm sm:text-md">Login ID</label>
+                    <input type="email" required name="loginid" min="" max="255" [(ngModel)]="loginid"
+                        #emailfield="ngModel" placeholder="Eg., MAKER"
+                        class="shadow p-2 rounded-xl bg-white placeholder:opacity-35">
+                        <div *ngIf="(login.submitted||emailfield.touched)&&emailfield.invalid" class="error">
+                             <small *ngIf="emailfield.errors?.['invalid']" class="text-red-500" >loginId is invalid</small>
+                             <small *ngIf="emailfield.errors?.['required']" class="text-red-500">loginId is required</small>
+                        </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="text-sm sm:text-md">Password</label>
+                    <input type="password" required name="password" [(ngModel)] = "password"
+                        placeholder="************" class="shadow p-2 rounded-xl bg-white placeholder:opacity-35  " #passwordfield="ngModel">
+                        <div *ngIf="(login.submitted||passwordfield.touched)&&passwordfield.invalid" class="error">
+                            <small *ngIf="passwordfield.errors?.['required']" class="text-red-500">Password is required</small>
+                            <small *ngIf="passwordfield.errors?.['invalid']" class="text-red-500">Password is invalid</small>
+                        </div>
+                </div>
+                <button type="submit" 
+                    class="bg-sky-500 text-white mt-5 p-2 rounded-xl">Login</button>
+                <div>
+                    {{error}}
+                </div>
+            </form>
+        </div>
+    </div>
+</header>

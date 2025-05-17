@@ -1,0 +1,15 @@
+<div class=" flex flex-col gap-2 m-4">
+    <div>Do you want to change into customer into inActive</div>
+    <div>
+        <form #cusactive="ngForm"  (ngSubmit)="onSubmit(cusactive)">
+            <div class="flex flex-col gap-2">
+                <label>Reason</label>
+                <input type="text" required  [(ngModel)]="reason" name="reason" class="border p-3 rounded">
+                 <div class="flex  justify-center gap-3">
+                 <button mat-dialog-close class="bg-blue-400 rounded-2xl p-2 px-5" type="submit">Yes</button>
+                 <button type="button"  class="bg-blue-400 rounded-2xl p-2 px-5">No</button>
+               </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class=" p-15 flex w-full justify-center">
+<form #editform="ngForm" (ngSubmit)="onSubmit(editform)" class="border">
+<div class="bg-sky-100 p-2 rounded">Customer Information</div>
+
+            <div class="p-4">
+                <div class="grid grid-col-1 sm:grid-cols-2 gap-4">
+                    <div class="flex gap-3">
+                        <label class="w-27">Partcode</label>
+                        <div class="flex flex-col">
+                          <input type="text" class="border rounded" name="partyCode" [(ngModel)]="partyData.partyCode" required #partycodde="ngModel">
+                        <div class="m-0" *ngIf="(editform.submitted||partycodde.touched)&&partycodde.invalid">
+                            <small class="text-red-500">email is required</small>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <label class="w-27">partyname</label>
+                           <div class="flex flex-col">
+                           <input type="text" class="border rounded" name="partyName" [(ngModel)]="partyData.partyName" required #partyname="ngModel">
+                        <div class="m-0" *ngIf="(editform.submitted||partyname.touched)&&partyname.invalid">
+                            <small class="text-red-500">email is required</small>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4">
+                <div class="grid grid-col-1 sm:grid-cols-2 gap-4 ">
+                    <div class="flex gap-3">
+                        <label class="w-27">emailAddress</label>
+                         <div class="flex flex-col">
+                        <input type="text" class="border rounded" name="emailAddress" [(ngModel)]="partyData.emailAddress" required #email="ngModel">
+                        <div class="m-0" *ngIf="(editform.submitted||email.touched)&&email.invalid">
+                            <small class="text-red-500">email is required</small>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <label class="w-27">mobileNumber</label>
+
+                         <div class="flex flex-col">
+                         <input type="text" class="border rounded" name="mobileNumber" [(ngModel)]="partyData.mobileNumber" required #mobileno="ngModel">
+                        <div class="m-0" *ngIf="(editform.submitted||mobileno.touched)&&mobileno.invalid">
+                            <small class="text-red-500">email is required</small>
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class=" flex gap-3 pt-10 justify-center">
+                <button class="bg-blue-400 text-white p-3 rounded">Cancel</button>
+                <button type="submit"  class="bg-blue-400 text-white p-3 rounded" >Save</button>
+            </div>
+</form>
+</div>

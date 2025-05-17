@@ -1,0 +1,26 @@
+<header class=" w-full shadow shadow-black-200">
+    <div class="flex w-full justify-between px-10 ">
+        <div class="">
+            <ul class="flex items-center justify-center gap-5 px-5 py-5">
+                <li>
+                    <a [routerLink]="['']" class="hover:text-blue-400">Home</a>
+                </li>
+                <li>
+                    <a [routerLink]="['register']" class="hover:text-blue-400">Register</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/','userlist']" class="hover:text-blue-400">UserList</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/','customerlist']" class="hover:text-blue-400">CustomerList</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="flex items-center">
+            <button (click)="onClick()" class="bg-sky-300 p-1 h-10 rounded-lg ">Signout</button>
+        </div>
+    </div>
+</header>
+
+<router-outlet></router-outlet>
